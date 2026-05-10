@@ -1,11 +1,19 @@
-
+// ==========================================
+// 1. CONFIGURATION DES DOMAINES (EN CLAIR)
+// ==========================================
 window.domainesAutorises = [
     "ivoirepromo.com",
-    "ivoirepromo225.blogspot.com",];
-var _0x45f2=['indexOf','hostname'...];
+    "ivoirepromo225.blogspot.com",
+    "blogger.com" // Important pour que l'éditeur Blogger fonctionne
+];
+
+
+// ==========================================
+// 2. LOGIQUE DE SÉCURITÉ (NON CRYPTÉE POUR TEST)
+// ==========================================
 (function() {
     // 1. On récupère la liste des domaines autorisés
-    var allowed = window.domainesAutorises ;
+    var allowed = window.domainesAutorises || [];
     var currentHost = window.location.hostname;
     var isAuthorized = false;
 
@@ -19,7 +27,7 @@ var _0x45f2=['indexOf','hostname'...];
 
     // 3. LA PUNITION (Message de droit d'auteur)
     if (!isAuthorized) {
-        // Affiche le message d'erreur avec un beau design
+        // Affiche le message d'erreur avec le design Ivoire Promo
         document.body.innerHTML = `
             <div style="text-align:center; padding:100px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fcf8f2; height:100vh; box-sizing:border-box;">
                 <div style="max-width:600px; margin:0 auto; background:#fff; padding:40px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.05); border:1px solid #eaeaea;">
@@ -30,7 +38,5 @@ var _0x45f2=['indexOf','hostname'...];
                 </div>
             </div>
         `;
-        
-        
     }
 })();
