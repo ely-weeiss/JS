@@ -1,0 +1,45 @@
+/* ===================================================================== */
+/* DESIGN "FLIP CARD" DES PAGES DE MARQUES ISOLÉES                       */
+/* ===================================================================== */
+.mon-design-isole {
+    width: 100%; max-width: 1300px; margin: 0 auto; font-family: inherit;
+}
+.mon-design-isole .page-header { text-align: center; padding: 1rem 0 0.5rem; }
+.mon-design-isole .page-header h1 { font-size: 1.6rem; color: var(--theme-color, #0f172a); font-weight: 800; }
+.mon-design-isole .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; color: #0f172a; }
+
+/* Navigation Marques */
+.mon-design-isole .brands-nav { background: white; border-radius: 2rem; padding: 0.6rem 0.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto; white-space: nowrap; scrollbar-width: none; margin-bottom: 2rem; }
+.mon-design-isole .brands-nav::-webkit-scrollbar { display: none; }
+.mon-design-isole .brand-list { display: flex; gap: 0.8rem; padding: 0 0.8rem; }
+.mon-design-isole .brand-item { background: var(--theme-color-light, #fff7ed); color: var(--theme-color, #c2410c); font-weight: 700; font-size: 0.9rem; padding: 0.5rem 1.2rem; border-radius: 2rem; border: 1px solid var(--theme-color, #fed7aa); transition: all 0.2s; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
+.mon-design-isole .brand-item:hover { background: var(--theme-color, #f97316); color: white; }
+
+/* Grilles et Scroll */
+.mon-design-isole .scroll-grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.mon-design-isole .scroll-grid::-webkit-scrollbar { display: none; }
+.mon-design-isole .periodic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+
+/* Cartes Flip 3D */
+.mon-design-isole .flip-card { perspective: 1000px; height: 340px; border-radius: 0.8rem; position: relative; }
+.mon-design-isole .scroll-card { min-width: 230px; max-width: 230px; scroll-snap-align: start; flex-shrink: 0; }
+.mon-design-isole .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; border-radius: 0.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.mon-design-isole .flip-card.rotate .flip-inner { transform: rotateY(180deg); }
+.mon-design-isole .flip-front, .mon-design-isole .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 0.8rem; display: flex; flex-direction: column; align-items: center; background: white; overflow: hidden; }
+.mon-design-isole .flip-back { background: #1e293b; color: white; transform: rotateY(180deg); justify-content: center; padding: 1.2rem 1rem; gap: 0.5rem; }
+
+/* Contenu des cartes */
+.mon-design-isole .card-image { width: 100%; height: 130px; background-color: #f1f5f9; position: relative; }
+.mon-design-isole .card-image img { width: 100%; height: 100%; object-fit: cover; }
+.mon-design-isole .brand-tag { position: absolute; top: 8px; left: 8px; background: var(--theme-color, #f97316); color: white; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 0.3rem; }
+.mon-design-isole .card-content { padding: 0.7rem; flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+.mon-design-isole .offer-badge { background: #dcfce7; color: #16a34a; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.8rem; border-radius: 1rem; margin-bottom: 0.3rem; }
+.mon-design-isole .card-content h3 { font-size: 0.9rem; font-weight: 700; color: #1e293b; margin: 0.2rem 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mon-design-isole .btn-more { background: #16a34a; border: none; color: white; padding: 0.45rem 0.8rem; border-radius: 2rem; font-weight: 600; font-size: 0.75rem; cursor: pointer; width: 100%; margin-top: auto; }
+.mon-design-isole .btn-flip-front { background: transparent; border: 1px solid var(--theme-color); color: var(--theme-color); margin-top: 5px; }
+.mon-design-isole .btn-flip-back { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #cbd5e1; margin-top: 0.8rem; width: 100%; padding: 0.45rem; border-radius: 2rem; cursor: pointer; }
+
+@media (max-width: 600px) {
+    .mon-design-isole .scroll-card { min-width: 200px; max-width: 200px; }
+    .mon-design-isole .periodic-grid { grid-template-columns: 1fr 1fr; }
+}
